@@ -13,7 +13,7 @@ from faststream.rabbit import RabbitBroker
 import io
 import base64
 
-broker = RabbitBroker("amqp://guest:guest@localhost:5672/")
+broker = RabbitBroker("amqp://guest:guest@localhost:5672/?heartbeat=2000")
 app = FastStream(broker)
 
 # Define path type for consistent handling

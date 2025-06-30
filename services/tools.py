@@ -33,7 +33,7 @@ def image_generation_tool(
                 }
                 
                 img_broker = RabbitBroker(
-                    "amqp://guest:guest@localhost:5672/",
+                    "amqp://guest:guest@localhost:5672/?heartbeat=2000",
                     timeout=2000.0,
                 )
                 await img_broker.connect()
@@ -140,6 +140,6 @@ def send_email_tool(
 python_repl = PythonREPL()
 repl_tool = Tool(
     name="python_repl",
-    description="A Python shell. Use this to execute python commands. Use the tool sparingly, only for calculations and when asked to run python code. Input should be a valid python command. End the command by printing the value you want with `print(...)`.",
+    description="A Python shell. Use this to execute python commands. Use the tool sparingly, for example for calculations, generating numbers, when asked to run python code etc. Input should be a valid python command. End the command by printing the value you want with `print(...)`.",
     func=python_repl.run,
 )

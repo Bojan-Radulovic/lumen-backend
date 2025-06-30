@@ -27,6 +27,7 @@ ENV/
 
 database/
 images/
+llms/
 
 # IDE
 .idea/

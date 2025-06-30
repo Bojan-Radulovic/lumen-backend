@@ -6,7 +6,7 @@ from faststream.rabbit import RabbitBroker
 import base64
 import io
 
-broker = RabbitBroker("amqp://guest:guest@localhost:5672/", timeout=2000.0)
+broker = RabbitBroker("amqp://guest:guest@localhost:5672/?heartbeat=2000", timeout=2000.0)
 app = FastStream(broker)
 
 base = "stabilityai/stable-diffusion-xl-base-1.0"

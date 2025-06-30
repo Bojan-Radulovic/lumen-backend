@@ -105,7 +105,7 @@ async def stream_response_service(request: StreamRequest, current_user: dict):
 
             print("Sending answer to TTS...")
             try:
-                async with RabbitBroker("amqp://guest:guest@localhost:5672/") as tts_broker:
+                async with RabbitBroker("amqp://guest:guest@localhost:5672/?heartbeat=2000") as tts_broker:
                     response = await tts_broker.publish(
                         message,
                         queue="to_tts",
